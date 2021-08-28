@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>js-array-demo</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <script>
+        function createCollapseElement(id, api) {
+            let div = document.createElement("div")
+            div.id =  id + "-container"
+            div.innerHTML = ('<a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="true" aria-controls="$id" href="#$id" role="button">$api</a>'+
+            '<div id="$id" class="collapse show"></div>').replaceAll("$id", id).replaceAll("$api", api)
+            let contentEle = document.getElementById("content")
+            if(contentEle != null) {
+                contentEle.append(div)
+                contentEle.append(document.createElement("hr"))
+            }
+            return document.getElementById(id)
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="title">Title</h2>
+                <hr>
+            </div>
+            <div class="col" id="content">
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        var int_array = [1,2,3,5,6,7,9]
+    </script>
+</body>
+
+</html>
