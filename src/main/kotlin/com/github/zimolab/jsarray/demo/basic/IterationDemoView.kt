@@ -29,15 +29,6 @@ class IterationDemoView : View("迭代相关API测试") {
             setTitle(title)
             val raw = engine.executeScript("int_array") as JSObject
             val jsArray = JsArray.intArrayOf(raw)
-
-            test(jsArray, "join()") {
-                snippet {
-                    "jsArray.join(\";\")"
-                }
-                output {
-                    jsArray.join(",")
-                }
-            }
         }
     }
 }
