@@ -13,7 +13,6 @@ import tornadofx.*
 class IterationDemoView : View("迭代相关API测试") {
     private val url = javaClass.getResource("/index.html")!!.toExternalForm()
     override val root = vbox {
-        this.alignment
         webview {
             vgrow = Priority.ALWAYS
             engine.loadWorker.stateProperty().addListener { _,_, state->
@@ -60,6 +59,14 @@ class IterationDemoView : View("迭代相关API测试") {
                 output {
                     jsArray.forEach { index, value ->
                         print("index: $index, value: $value")
+                    }
+                }
+            }
+
+            test(jsArray, "forEachAny()") {
+                output {
+                    jsArray.findAny { (index, value)->
+                        value is Int && value >= 3
                     }
                 }
             }

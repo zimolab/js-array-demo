@@ -35,10 +35,10 @@ class OnPageTest(private val engine: WebEngine) {
         }
     }
 
-    fun DIV.print(vararg s: Any) {
+    fun DIV.print(vararg s: Any?) {
         s.forEach {
             p {
-                text(it.toString())
+                text("${it?.toString()}")
             }
         }
     }
